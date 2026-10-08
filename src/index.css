@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-color: #000000;
+    --card-bg: #070a12;
+    --cyan-accent: #06b6d4;
+    --cyan-glow: rgba(6, 182, 212, 0.2);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #000000;
+  }
+
+  body {
+    background-color: #000000;
+    color: #e2e8f0;
+    overflow-x: hidden;
+  }
+
+  /* Custom subtle scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #000000;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #172033;
+    border-radius: 3px;
+    border: 1px solid rgba(6, 182, 212, 0.2);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #0891b2;
+  }
+
+  code, pre, .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+/* Subtle tech grid on pure black background */
+.tech-grid-bg {
+  background-color: #000000;
+  background-size: 34px 34px;
+  background-image: 
+    linear-gradient(to right, rgba(6, 182, 212, 0.048) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(6, 182, 212, 0.048) 1px, transparent 1px);
+}
+
+/* Tech card with pitch black tint and subtle cyan border */
+.tech-card {
+  background: rgba(8, 12, 20, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(6, 182, 212, 0.16);
+  transition: all 0.25s ease;
+}
+
+.tech-card:hover {
+  border-color: rgba(6, 182, 212, 0.42);
+  background: rgba(11, 16, 28, 0.95);
+  box-shadow: 0 8px 30px -8px rgba(6, 182, 212, 0.15), 0 0 12px rgba(6, 182, 212, 0.08);
+}
+
+/* Glowing text and animations */
+.glow-cyan-text {
+  text-shadow: 0 0 12px rgba(6, 182, 212, 0.45);
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse-subtle {
+  0%, 100% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.02);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 28s linear infinite;
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
